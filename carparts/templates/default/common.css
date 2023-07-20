@@ -628,11 +628,11 @@ div.AvailVal div.cm_OutOfStock, div.AvailVal div.cm_InStock{margin:0px; display:
 .CmPaddZ{padding:0px;}
 .CmPaddUpDownZ{padding:2px 5px !important;}
 .CmMargZ{margin:0px;}
-.avalTd{display:flex; align-items:center; position:relative;}
+.avalTd{display:flex; align-items:center; position:relative; margin-right:-1px;}
 .CmAvalOnPage {width:17px; height:20px; margin-right:5px;}
 .cm_svgAval{fill:#379C08; display:flex; align-items:center; justify-content:center;}
 .CmListPrAvail{display:flex; justify-content:center; align-items:center; color:#791b1b;}
-.delivTd{display:flex; align-items:center; justify-content:space-between; min-width:36px; border-radius:0px 3px 3px 0px; cursor:pointer; border-width:1px; border-style:solid; margin-right:3px; border-left-width:0px; padding:3px 5px; border-color:#7f7f7f!important; position:relative;}
+.delivTd{display:flex; align-items:center; justify-content:space-between; min-width:36px; border-radius:0px 3px 3px 0px; cursor:pointer; border-width:1px; border-style:solid; margin-right:3px; padding:3px 5px; border-color:#7f7f7f!important; position:relative;}
 .delivImg{width:17px; height:20px; fill:#7f7f7f; margin-right:5px;}
 .CmInStockText{line-height:24px; color:#505050; display:flex; justify-content:center; align-items:center; padding:5px; min-width:23px;}
 .CmInStockText svg{width:20px; height:20px;}

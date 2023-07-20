@@ -75,7 +75,7 @@ $aTip = Array(
 	72 => 'Additional SEO description/Product name - that is loaded with the Price-List, via the suppliers web-service API or added manually', 
 	73 => 'Section editing (active, sorting and deleting) will apply for all languages',
 	74 => 'List of Brands that are not activated in the <a href="Brands.php">Brands settings</a>. Perhaps the Brand is already in the system, but under a different name. Then you can add an Alias for it to bind an custom name from your price-list to the nominal name in the CarMod',
-	75 => 'Specify the maximum number of acceptable seconds that a catalog user will wait while the server makes API requests for prices of your active Web-Services. Upon reaching the limit, requests will be interrupted and the user will see the prices for the list of products that have been requested. If disabled, only the AJAX request API method in the visitors browser will be used',
+	75 => 'Specify the maximum number of acceptable seconds that a catalog user will wait while the server makes API requests for prices of your active Web-Services. Upon reaching the limit, requests will be interrupted and the user will see only those prices for the products that have already been requested. If disabled, only the AJAX request API method in the visitors browser will be used',
 	
 );
 ?>

@@ -3519,14 +3519,14 @@ window.theme = window.theme || {}, window.theme = window.theme || {}, theme.Sect
                 });
             }
             doModal();
-            if ($(".search-form1").length) {
+            if ($(".search-form").length) {
                 if ($(window).width() > 1024) {
-                    if ($(".item--searchMobile .search-form1").length) {
-                        $(".item--searchMobile .search-form1").appendTo(".item--quickSearch");
+                    if ($(".item--searchMobile .search-form").length) {
+                        $(".item--searchMobile .search-form").appendTo(".item--quickSearch");
                     }
                 } else {
-                    if ($(".item--quickSearch .search-form1").length) {
-                        $(".item--quickSearch .search-form1").appendTo(".item--searchMobile");
+                    if ($(".item--quickSearch .search-form").length) {
+                        $(".item--quickSearch .search-form").appendTo(".item--searchMobile");
                     }
                 }
             }

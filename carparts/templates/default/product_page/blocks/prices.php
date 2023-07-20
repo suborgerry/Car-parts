@@ -27,11 +27,13 @@ if($aProd['PRICES'] AND !$aRes['FINDPRICE_BUTTON']){
 	//echo $aRes['ACTIVE_TAB']; echo '';
 	?>
 	
-	<?if($aRes['ACTIVE_TAB'] == 'TABLE'){//TABLE?>
+	<?/* if($aRes['ACTIVE_TAB'] == 'TABLE'){//TABLE?>
 		<div class="CmAvDelStWrap <?if(HIDE_PRODUCTS_COUNT){?>CmGrid1Fr<?}?>">
-			<div class="CmAvailNumBlock CmColorTx CmTitShow <?if(HIDE_PRODUCTS_COUNT){?>CmBordRightN<?}?>" title="<?=Lng_x('Availability');?>">
-				<?PrintProductAvailable_x($firstPr, $aRes)?>
-			</div>
+			<?if(PRICES_DISPLAY_QUANTITY){?>
+				<div class="CmAvailNumBlock CmColorTx CmTitShow <?if(HIDE_PRODUCTS_COUNT){?>CmBordRightN<?}?>" title="<?=Lng_x('Availability');?>">
+					<?PrintProductAvailable_x($firstPr, $aRes)?>
+				</div>
+			<?}?>
 			<?if(!HIDE_PRODUCTS_COUNT){?>
 				<div class="CmDeliveryBlock <?if($firstPr['DELIVERY_NUM']==0){echo 'CmInStockDelivery';}else{echo 'CmTimeDelivery';}?> CmTitShow" title="<?=Lng_x('Dtime_delivery',0)?>">
 					<?if($firstPr['DELIVERY_NUM']==0){?>
@@ -110,7 +112,7 @@ if($aProd['PRICES'] AND !$aRes['FINDPRICE_BUTTON']){
 				<?}?>
 			</div>
 		</div>
-	<?}?>
+	<?} */?>
 	
 	
 	
@@ -157,14 +159,16 @@ if($aProd['PRICES'] AND !$aRes['FINDPRICE_BUTTON']){
         <div class="CmPriceProd" data-txta='<?if($firstPr['AVAILABLE_NUM']==0){echo Lng_x('Not_available');}else{if(HIDE_PRODUCTS_COUNT){echo Lng_x('Available');}else{echo Lng_x('Availability');}}?>' data-txtd='<?if($firstPr['DELIVERY_NUM'] == 0){echo Lng_x('In_stock');}else{echo Lng_x('Dtime_delivery');}?>'>
             <div class="CmAvalBlPriceBl">
                 <div class="CmAvalProdOptionWrap">
-                    <div class="avalTd CmTitShow" title="<?if($firstPr['AVAILABLE_NUM']==0){echo Lng_x('Not_available');}else{if(HIDE_PRODUCTS_COUNT){echo Lng_x('Available');}else{echo Lng_x('Availability');}}?>">
-                        <div class="CmAvalImgTextPage <?if(HIDE_PRODUCTS_COUNT){?>CmPaddZ<?}?> CmColorBr">
-                            <?if(!HIDE_PRODUCTS_COUNT){?>
-                                <div class="cm_svgAval CmColorFi"><svg class="CmAvalOnPage fillBg" viewBox="0 0 24 24"><path d="M16.677 17.868l-.343.195v-1.717l.343-.195v1.717zm2.823-3.325l-.342.195v1.717l.342-.195v-1.717zm3.5-7.602v11.507l-9.75 5.552-12.25-6.978v-11.507l9.767-5.515 12.233 6.941zm-13.846-3.733l9.022 5.178 1.7-.917-9.113-5.17-1.609.909zm2.846 9.68l-9-5.218v8.19l9 5.126v-8.098zm3.021-2.809l-8.819-5.217-2.044 1.167 8.86 5.138 2.003-1.088zm5.979-.943l-2 1.078v2.786l-3 1.688v-2.856l-2 1.078v8.362l7-3.985v-8.151zm-4.907 7.348l-.349.199v1.713l.349-.195v-1.717zm1.405-.8l-.344.196v1.717l.344-.196v-1.717zm.574-.327l-.343.195v1.717l.343-.195v-1.717zm.584-.333l-.35.199v1.717l.35-.199v-1.717z"/></svg></div>
-                            <?}?>
-                            <?PrintProductAvailable_x($firstPr)?>
-                        </div>
-                    </div>
+                    <?if(PRICES_DISPLAY_QUANTITY){?>
+						<div class="avalTd CmTitShow" title="<?if($firstPr['AVAILABLE_NUM']==0){echo Lng_x('Not_available');}else{if(HIDE_PRODUCTS_COUNT){echo Lng_x('Available');}else{echo Lng_x('Availability');}}?>">
+							<div class="CmAvalImgTextPage <?if(HIDE_PRODUCTS_COUNT){?>CmPaddZ<?}?> CmColorBr">
+								<?if(!HIDE_PRODUCTS_COUNT){?>
+									<div class="cm_svgAval CmColorFi"><svg class="CmAvalOnPage fillBg" viewBox="0 0 24 24"><path d="M16.677 17.868l-.343.195v-1.717l.343-.195v1.717zm2.823-3.325l-.342.195v1.717l.342-.195v-1.717zm3.5-7.602v11.507l-9.75 5.552-12.25-6.978v-11.507l9.767-5.515 12.233 6.941zm-13.846-3.733l9.022 5.178 1.7-.917-9.113-5.17-1.609.909zm2.846 9.68l-9-5.218v8.19l9 5.126v-8.098zm3.021-2.809l-8.819-5.217-2.044 1.167 8.86 5.138 2.003-1.088zm5.979-.943l-2 1.078v2.786l-3 1.688v-2.856l-2 1.078v8.362l7-3.985v-8.151zm-4.907 7.348l-.349.199v1.713l.349-.195v-1.717zm1.405-.8l-.344.196v1.717l.344-.196v-1.717zm.574-.327l-.343.195v1.717l.343-.195v-1.717zm.584-.333l-.35.199v1.717l.35-.199v-1.717z"/></svg></div>
+								<?}?>
+								<?PrintProductAvailable_x($firstPr)?>
+							</div>
+						</div>
+					<?}?>
                     <?if($firstPr['AVAILABLE_NUM'] > 0){?>
                         <div class="delivTd CmTitShow <?if(HIDE_PRODUCTS_COUNT){?>CmPaddUpDownZ<?}?> <?if($firstPr['DELIVERY_NUM'] == 0){echo 'CmInStockDelivery" title="'.Lng_x('In_stock');}else{echo 'CmTimeDelivery" title="'.Lng_x('Dtime_delivery');}?>" data-suplstock="<?=$firstPr['SUPPLIER_STOCK']?>">
                             <div class="svgDeliv">
@@ -236,7 +240,7 @@ if($aProd['PRICES'] AND !$aRes['FINDPRICE_BUTTON']){
         <table class="CmTablePriceWrap">
             <thead>
                 <tr class="CmTitleImg">
-                    <?if(!HIDE_PRODUCTS_COUNT){?>
+                    <?if(!HIDE_PRODUCTS_COUNT ){?>
                         <th>
                             <div id="cmdelnum" class="CmSvgDelivNotHide CmTitShow" title="<?=Lng_x('Dtime_delivery')?>">
                                 <?if(count($aProd['PRICES']) > 0){?>
@@ -253,14 +257,16 @@ if($aProd['PRICES'] AND !$aRes['FINDPRICE_BUTTON']){
                             </div>
                         </th>
                     <?}?>
-                    <th style="<?if($aRes['ACTIVE_TAB'] == 'TABLE'){?>display:none<?}?>">
-                        <div id="cmavnum" class="CmSvgAvalNotHide CmTitShow" title="<?=Lng_x('Availability')?>">
-                            <?if(count($aProd['PRICES']) > 0){?>
-                                <div class="<?if($prSort[0]=='Available'){?>CmColorFi<?}?> CmSortBlock CmDescSort CmAvailable" data-sort="desc" data-val="Available" data-url="<?=$aRes['DETAIL_PAGE_URL']?>"><?if($aPageSVG['CmSort']){echo $aPageSVG['CmSort'];}else{echo $aListSVG['CmSort'];}?></div>
-                            <?}?>
-                            <svg class="<?if($prSort[0]=='Available' && count($aProd['PRICES']) > 0){?>CmColorFi<?}?> CmAvalOnPage fillBg" viewBox="0 0 24 24"><path d="M16.677 17.868l-.343.195v-1.717l.343-.195v1.717zm2.823-3.325l-.342.195v1.717l.342-.195v-1.717zm3.5-7.602v11.507l-9.75 5.552-12.25-6.978v-11.507l9.767-5.515 12.233 6.941zm-13.846-3.733l9.022 5.178 1.7-.917-9.113-5.17-1.609.909zm2.846 9.68l-9-5.218v8.19l9 5.126v-8.098zm3.021-2.809l-8.819-5.217-2.044 1.167 8.86 5.138 2.003-1.088zm5.979-.943l-2 1.078v2.786l-3 1.688v-2.856l-2 1.078v8.362l7-3.985v-8.151zm-4.907 7.348l-.349.199v1.713l.349-.195v-1.717zm1.405-.8l-.344.196v1.717l.344-.196v-1.717zm.574-.327l-.343.195v1.717l.343-.195v-1.717zm.584-.333l-.35.199v1.717l.35-.199v-1.717z"/></svg>
-                        </div>
-                    </th>
+					<?if(PRICES_DISPLAY_QUANTITY){?>
+						<th style="<?if($aRes['ACTIVE_TAB'] == 'TABLE'){?>display:none<?}?>">
+							<div id="cmavnum" class="CmSvgAvalNotHide CmTitShow" title="<?=Lng_x('Availability')?>">
+								<?if(count($aProd['PRICES']) > 0){?>
+									<div class="<?if($prSort[0]=='Available'){?>CmColorFi<?}?> CmSortBlock CmDescSort CmAvailable" data-sort="desc" data-val="Available" data-url="<?=$aRes['DETAIL_PAGE_URL']?>"><?if($aPageSVG['CmSort']){echo $aPageSVG['CmSort'];}else{echo $aListSVG['CmSort'];}?></div>
+								<?}?>
+								<svg class="<?if($prSort[0]=='Available' && count($aProd['PRICES']) > 0){?>CmColorFi<?}?> CmAvalOnPage fillBg" viewBox="0 0 24 24"><path d="M16.677 17.868l-.343.195v-1.717l.343-.195v1.717zm2.823-3.325l-.342.195v1.717l.342-.195v-1.717zm3.5-7.602v11.507l-9.75 5.552-12.25-6.978v-11.507l9.767-5.515 12.233 6.941zm-13.846-3.733l9.022 5.178 1.7-.917-9.113-5.17-1.609.909zm2.846 9.68l-9-5.218v8.19l9 5.126v-8.098zm3.021-2.809l-8.819-5.217-2.044 1.167 8.86 5.138 2.003-1.088zm5.979-.943l-2 1.078v2.786l-3 1.688v-2.856l-2 1.078v8.362l7-3.985v-8.151zm-4.907 7.348l-.349.199v1.713l.349-.195v-1.717zm1.405-.8l-.344.196v1.717l.344-.196v-1.717zm.574-.327l-.343.195v1.717l.343-.195v-1.717zm.584-.333l-.35.199v1.717l.35-.199v-1.717z"/></svg>
+							</div>
+						</th>
+					<?}?>
                     <?if(count($firstPr['OPTIONS_VIEW']) > 0 || count($prOpt) > 0){?>
                         <th class="CmOptionsTitl"></th>
                     <?}?>
@@ -279,7 +285,7 @@ if($aProd['PRICES'] AND !$aRes['FINDPRICE_BUTTON']){
             </thead>
             <tbody class="CmTbodyPrice">
                 <tr class="CmPriceValRow CmColorBgLh <?if($firstPr['DELIVERY_NUM'] == 0){?>CmColorBgL<?}?>" data-cmdelnum="<?=$firstPr['DELIVERY_NUM']?>" data-cmavnum="<?=$firstPr['AVAILABLE_NUM']?>" data-cmprnum="<?=strip_tags($firstPr['PRICE_VALUE'])?>">
-                    <?if(!HIDE_PRODUCTS_COUNT){?>
+                    <?if(!HIDE_PRODUCTS_COUNT ){?>
                         <?if($firstPr['DELIVERY_NUM'] == 0){?>
                             <td>
                                 <div class="CmInStockText CmTitShow CmColorFi" title="<?=Lng_x('In_stock')?>">
@@ -313,11 +319,13 @@ if($aProd['PRICES'] AND !$aRes['FINDPRICE_BUTTON']){
                            </div>
                        </td>
                     <?}?>
-                    <td>
-                        <div class="cm_AvalNotHide CmTitShow" title="<?if($firstPr['AVAILABLE_NUM']==0){echo Lng_x('Not_available');}else{echo Lng_x('Availability');}?>">
-                            <?PrintProductAvailable_x($firstPr)?>
-                        </div>
-                    </td>
+					<?if(PRICES_DISPLAY_QUANTITY){?>
+						<td>
+							<div class="cm_AvalNotHide CmTitShow" title="<?if($firstPr['AVAILABLE_NUM']==0){echo Lng_x('Not_available');}else{echo Lng_x('Availability');}?>">
+								<?PrintProductAvailable_x($firstPr)?>
+							</div>
+						</td>
+					<?}?>
                     <?if(count($firstPr['OPTIONS_VIEW']) > 0 || count($prOpt) > 0){?>
                         <td>
                             <div class="CmOptionsBlockInfo">
@@ -422,11 +430,13 @@ if($aProd['PRICES'] AND !$aRes['FINDPRICE_BUTTON']){
                                         </div>
                                     </td>
                                 <?}?>
-                                <td>
-                                    <div class="cm_AvalNotHide CmTitShow" title="<?if($aPrice['AVAILABLE_NUM']==0){echo Lng_x('Not_available');}else{echo Lng_x('Availability');}?>">
-                                        <?PrintProductAvailable_x($aPrice)?>
-                                    </div>
-                                </td>
+								<?if(PRICES_DISPLAY_QUANTITY){?>
+									<td>
+										<div class="cm_AvalNotHide CmTitShow" title="<?if($aPrice['AVAILABLE_NUM']==0){echo Lng_x('Not_available');}else{echo Lng_x('Availability');}?>">
+											<?PrintProductAvailable_x($aPrice)?>
+										</div>
+									</td>
+								<?}?>
                                 <?if(count($firstPr['OPTIONS_VIEW']) > 0 || count($prOpt)> 0){?>
                                     <td>
                                         <div class="CmOptionsBlockInfo">
@@ -527,11 +537,13 @@ if($aProd['PRICES'] AND !$aRes['FINDPRICE_BUTTON']){
                                     </div>
                                 </td>
                             <?}?>
-                            <td>
-                                <div class="cm_AvalNotHide CmTitShow" title="<?if($aPrice['AVAILABLE_NUM']==0){echo Lng_x('Not_available');}else{echo Lng_x('Availability');}?>">
-                                    <?PrintProductAvailable_x($aPrice)?>
-                                </div>
-                            </td>
+							<?if(PRICES_DISPLAY_QUANTITY){?>
+								<td>
+									<div class="cm_AvalNotHide CmTitShow" title="<?if($aPrice['AVAILABLE_NUM']==0){echo Lng_x('Not_available');}else{echo Lng_x('Availability');}?>">
+										<?PrintProductAvailable_x($aPrice)?>
+									</div>
+								</td>
+							<?}?>
                             <?if(count($firstPr['OPTIONS_VIEW']) > 0 || count($prOpt)> 0){?>
                                 <td>
                                     <div class="CmOptionsBlockInfo">
@@ -760,11 +772,13 @@ if($aProd['PRICES'] AND !$aRes['FINDPRICE_BUTTON']){
                                     </div>
                                 </td>
                             <?}?>
-                            <td>
-                                <div class="cm_AvalNotHide CmTitShow" title="<?if($aPrice['AVAILABLE_NUM']==0){echo Lng_x('Not_available');}else{echo Lng_x('Availability');}?>">
-                                    <?PrintProductAvailable_x($aPrice)?>
-                                </div>
-                            </td>
+							<?if(PRICES_DISPLAY_QUANTITY){?>
+								<td>
+									<div class="cm_AvalNotHide CmTitShow" title="<?if($aPrice['AVAILABLE_NUM']==0){echo Lng_x('Not_available');}else{echo Lng_x('Availability');}?>">
+										<?PrintProductAvailable_x($aPrice)?>
+									</div>
+								</td>
+							<?}?>
 							<?if(count($firstPr['OPTIONS_VIEW']) > 0 OR (is_array($prOpt) AND count($prOpt) > 0)){?>
                                 <td>
                                     <div class="CmOptionsBlockInfo">
@@ -864,11 +878,13 @@ if($aProd['PRICES'] AND !$aRes['FINDPRICE_BUTTON']){
                                     </div>
                                 </td>
                             <?}?>
-                            <td>
-                                <div class="cm_AvalNotHide CmTitShow" title="<?if($aPrice['AVAILABLE_NUM']==0){echo Lng_x('Not_available');}else{echo Lng_x('Availability');}?>">
-                                    <?PrintProductAvailable_x($aPrice)?>
-                                </div>
-                            </td>
+							<?if(PRICES_DISPLAY_QUANTITY){?>
+								<td>
+									<div class="cm_AvalNotHide CmTitShow" title="<?if($aPrice['AVAILABLE_NUM']==0){echo Lng_x('Not_available');}else{echo Lng_x('Availability');}?>">
+										<?PrintProductAvailable_x($aPrice)?>
+									</div>
+								</td>
+							<?}?>
                             <?if(count($firstPr['OPTIONS_VIEW']) > 0 OR (is_array($prOpt) AND count($prOpt) > 0)){?>
                                 <td>
                                     <div class="CmOptionsBlockInfo">

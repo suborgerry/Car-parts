@@ -48,7 +48,7 @@ $(document).ready(function () {
         var bodyHeig = jQuery('html').height();
         jQuery('html').append('<div class="CmBlockOverPage"></div>');
         jQuery('.CmBlockOverPage').show().height(bodyHeig);
-        jQuery('.left_fil').css({ right: '315px', transition: "right 0.3s" });
+        jQuery('.left_fil').css({ right: '300px', transition: "right 0.3s" });
     });
     jQuery(document).mousedown(function (e) {
         e.stopPropagation();

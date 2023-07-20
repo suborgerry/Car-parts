@@ -28,11 +28,16 @@ if( file_exists($root . $_POST['dir']) ) {
 				//$file = iconv("cp1251", "UTF-8", $file);
 				$ext = preg_replace('/^.*\./', '', $file);
 				if(in_array(strtolower($ext),$arExts)){
-					echo "<li class=\"file ext_$ext\"><a href=\"#\" rel=\"" . $_POST['dir'] . $file . "\">" . $file . "</a><a download href=\"".$_POST['dir'].$file."\" title=\"Download\" class=\"CmATip imgRotate\" style=\"float:right; margin:-17px 17px 0 0;\"><img src=\"media/images/im_download.png\" width=\"16\" height=\"16\"/></a> <img src=\"media/images/trash.gif\" namefile=\"".$_POST['dir'].$file."\" class=\"CmATip imgRotate DelPList\" width=\"16\" height=\"16\" title=\"Delete\" style=\"float:right; margin-top:-17px;\"></li>";
+					echo "<li class=\"file ext_$ext\"><a href=\"#\" rel=\"" . $_POST['dir'] . $file . "\">" . $file . "</a> <img src=\"media/images/trash.gif\" namefile=\"".$_POST['dir'].$file."\" class=\"CmATip imgRotate DelPList\" width=\"16\" height=\"16\" title=\"Delete\" style=\"float:right; margin-top:-17px;\"></li>";
+					echo '<a href="'.$_POST['dir'].$file.'" download title="Download" class="CmATip imgRotate" style="float:right; margin:-17px 25px 0 0;"><img src="media/images/im_download.png" width="16" height="16"/></a>';
 				}
 			}
+			
 		}
-		echo "</ul>";	
+		//<a href=\"".$_POST['dir'].$file."\" download target=\"_blank\" title=\"Download\" class=\"CmATip imgRotate\" style=\"float:right; margin:-17px 25px 0 0;\"><img src=\"media/images/im_download.png\" width=\"16\" height=\"16\"/></a>
+		
+		echo "</ul>";
+		
 	}
 }
 

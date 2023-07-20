@@ -327,10 +327,15 @@ div.CmFilterCheck {
   float: left;
   width: 28%;
   width: 20px;
-  height: 20px;
+  height: 14px;
   margin-right: 9px;
   border: 1px solid #474749;
   border-radius: 2px;
+}
+@media screen and (min-width: 992px) {
+  .check_b {
+    height: 20px;
+  }
 }
 .check_b svg {
   height: 16px;
@@ -390,7 +395,6 @@ div.searc_inp input.filt_sect {
   display: inline-block;
   padding: 0px 0px 0px 5px !important;
   border-radius: 0px;
-  box-shadow: inset 2px 2px 4px 0px #d7d7d7;
 }
 input.filt_sect::-webkit-input-placeholder {
   text-transform: none;
@@ -2916,6 +2920,29 @@ div.CmAvalImgTextList div.cm_OutOfStock {
   border-radius: 3px;
 }
 
+.cmNoInStockForm button {
+  border: 1px solid #0083ca;
+  height: 40px;
+  border-radius: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+  background-color: transparent;
+  color: #0083ca;
+}
+
+.cmNoInStockForm label {
+  font-weight: 600;
+}
+
+.product-actions .cmNoInStockForm {
+  margin-top: 20px;
+}
+
+.product-actions .cmNoInStockForm input,
+.product-actions .cmNoInStockForm button {
+  width: 100%;
+}
+
 /* TABLE VIEW */
 .cm_tableView {
   margin-left: 20px;
@@ -2943,7 +2970,7 @@ thead.cm_titleTr th {
   color: #6f6f6f;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 19;
 }
 .CmBranArtWrap,
 .CmImBranArtWrap {
@@ -3176,23 +3203,18 @@ div.CmBrandArtBlock {
 .partLink_t a:hover {
   text-decoration: underline !important;
 }
+
+.CmTablePrToCart svg {
+  width: 20px;
+}
+
 .CmTablePrToCart,
 .CmTablePrToCart_H {
-  box-shadow: 1px 1px 3px 0px rgb(191, 191, 191),
-    inset rgba(255, 255, 255, 0.2) 8px 8px 10px -3px,
-    inset rgba(0, 0, 0, 0.3) -8px -8px 10px -3px;
-  height: 26px;
-  border: 1px solid #cdcdcd;
-  width: 20px;
   cursor: pointer;
-  transition: all 0.1s;
-  border-radius: 4px;
-  padding: 0px 3px 0px 3px !important;
   float: right;
-}
-.CmTablePrToCart:hover,
-.CmTablePrToCart_H:hover {
-  box-shadow: inset rgba(0, 0, 0, 0.3) 0px 0px 10px -3px;
+  width: 100%;
+  color: #fff;
+  padding: 13px 15px 11px 15px;
 }
 .CmTablePrToCart:active,
 .CmTablePrToCart_H:active {

@@ -1,0 +1,22 @@
+<div class="container" id="categories-block">
+	<img src="/catalog/view/image/loading.gif" class="loading-categories">
+</div>
+<script>
+	$.ajax({
+url: 'carparts',
+type: 'post',
+dataType: 'html',
+beforeSend: function () {
+$('.loading-categories').show()
+},
+success: function (html) {
+const categories = $.parseHTML(html);
+$('.loading-categories').hide()
+$('#categories-block').append($(categories).find('#categories-grid'));
+},
+error: function (xhr, ajaxOptions, thrownError) {
+console.log(xhr.status);
+console.log(thrownError);
+}
+});
+</script>

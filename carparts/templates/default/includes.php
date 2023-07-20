@@ -26,6 +26,7 @@ jQuery(document).ready(function($){
         echo 'Y';
     } ?>';
 
+    console.log('test');
     // Add to Cart
     $("body").on("click",".CmAddToCart", function(e){
        e.stopPropagation();
@@ -36,45 +37,45 @@ jQuery(document).ready(function($){
             Qty = $(this).parent(".CmQuantBlToCartBl").find(".CmAddToCartQty").val();
             Qty = parseInt(Qty);
             <? if (isset($_REQUEST['CartDebug']) or $_REQUEST['last'] == '?CartDebug') { ?>
-                        alert(URL+'\r\n'+PriceID+'\r\n'+Qty);
-                        $("<form action='"+URL+"' id='TestCart"+PriceID+"' method='post' target='_blank'>"+
-                        "<input type='hidden' name='AddToCart' value='"+PriceID+"'/>"+
-                        "<input type='hidden' name='Qty' value='"+Qty+"'/>"+
-                        "</form >").appendTo('body'); $("#TestCart"+PriceID+"").submit();
+                                        alert(URL+'\r\n'+PriceID+'\r\n'+Qty);
+                                        $("<form action='"+URL+"' id='TestCart"+PriceID+"' method='post' target='_blank'>"+
+                                        "<input type='hidden' name='AddToCart' value='"+PriceID+"'/>"+
+                                        "<input type='hidden' name='Qty' value='"+Qty+"'/>"+
+                                        "</form >").appendTo('body'); $("#TestCart"+PriceID+"").submit();
             <? } else { ?>
-                        if(CmsCartID==''){
-                            CmAddCartPost(URL, PriceID, Qty); //custom.js
-                        }else{
-                            LoadingToggle('CmContent',1); // Scroll top of body (2-scroll to content box: CmContent)
-                            // console.log(URL+' - '+PriceID+' - '+Qty);
-                        //    var pData = 'AddToCart='+PriceID+'&Qty='+Qty;
-                        //    ReqFetch(URL, pData)
-                        //        .then(result => {
-                        //            CmAfterCartAjax(result, CmsCartID);
-                        //            LoadingToggle();
-                        //        });
-                            $.ajax({url:URL, type:'POST', dataType:'html', data:{AddToCart:PriceID, Qty:Qty},
-                                success: function(Result){
-                                    var CmCartErrors = '';
-                                    var aResult = Result.split('|CmCartErrors|');
-                                    if(aResult.length>1){
-                                        CmCartErrors = aResult[0];
-                                        Result = aResult[1];
-                                    }
-                                    CmAfterCartAjax(Result, CmsCartID, ClickedButton, CmCartErrors, IsCmAdmin); //custom.js
-                                    LoadingToggle(); //Not Scroll
-                                },
-                                error: function(jqXHR, error, errorThrown){
-                                    if(jqXHR.status&&jqXHR.status==400){
-                                        alert(jqXHR.responseText);
-                                    }else{
-                                        alert('Hmm.. there is problems with "Ajax Add Cart" \r\n'+URL);
-                                    }
-                                    LoadingToggle(); //Not Scroll
-                                },
-                                timeout:30000
-                            });
-                        }
+                                        if(CmsCartID==''){
+                                            CmAddCartPost(URL, PriceID, Qty); //custom.js
+                                        }else{
+                                            LoadingToggle('CmContent',1); // Scroll top of body (2-scroll to content box: CmContent)
+                                            // console.log(URL+' - '+PriceID+' - '+Qty);
+                                        //    var pData = 'AddToCart='+PriceID+'&Qty='+Qty;
+                                        //    ReqFetch(URL, pData)
+                                        //        .then(result => {
+                                        //            CmAfterCartAjax(result, CmsCartID);
+                                        //            LoadingToggle();
+                                        //        });
+                                            $.ajax({url:URL, type:'POST', dataType:'html', data:{AddToCart:PriceID, Qty:Qty},
+                                                success: function(Result){
+                                                    var CmCartErrors = '';
+                                                    var aResult = Result.split('|CmCartErrors|');
+                                                    if(aResult.length>1){
+                                                        CmCartErrors = aResult[0];
+                                                        Result = aResult[1];
+                                                    }
+                                                    CmAfterCartAjax(Result, CmsCartID, ClickedButton, CmCartErrors, IsCmAdmin); //custom.js
+                                                    LoadingToggle(); //Not Scroll
+                                                },
+                                                error: function(jqXHR, error, errorThrown){
+                                                    if(jqXHR.status&&jqXHR.status==400){
+                                                        alert(jqXHR.responseText);
+                                                    }else{
+                                                        alert('Hmm.. there is problems with "Ajax Add Cart" \r\n'+URL);
+                                                    }
+                                                    LoadingToggle(); //Not Scroll
+                                                },
+                                                timeout:30000
+                                            });
+                                        }
             <? } ?>
         }else{
             alert('Wrong PriceID ['+PriceID+'] or URL ['+URL+']');
@@ -165,23 +166,23 @@ function BreadCrumbs_x()
                     //$Crumb = Lng_x('Catalog',0);
                 }
                 ?><li class="CmBrCrItem" property="itemListElement" typeof="ListItem">
-                                                    <a property="item" typeof="WebPage" href="<?= $Href ?>">
-                                                        <span class="CmColorTxh CmUnderLineHover"  property="name"><?= $Crumb ?></span>
-                                                    </a>
-                                                    <meta property="position" content="<?= $pos ?>">
-                                                </li>
-                                                <svg class="CmBrCrArrow" viewBox="0 0 24 24"><path d="M8.122 24l-4.122-4 8-8-8-8 4.122-4 11.878 12z"/></svg><?
+                                                                                                                    <a property="item" typeof="WebPage" href="<?= $Href ?>">
+                                                                                                                        <span class="CmColorTxh CmUnderLineHover"  property="name"><?= $Crumb ?></span>
+                                                                                                                    </a>
+                                                                                                                    <meta property="position" content="<?= $pos ?>">
+                                                                                                                </li>
+                                                                                                                <svg class="CmBrCrArrow" viewBox="0 0 24 24"><path d="M8.122 24l-4.122-4 8-8-8-8 4.122-4 11.878 12z"/></svg><?
             } else {
                 ?><div class="CmCrumbLast"><?= $Crumb ?></div><?
             }
         } ?>
-                        <li class="CmLastBcItem" property="itemListElement" typeof="ListItem">
-                            <span property="item" typeof="WebPage">
-                                <span class="CmLastItemTxt" property="name"><?= $lastKey ?></span>
-                            </span>
-                            <meta property="position" content="<?= $pos ?>">
-                        </li>
-            <? }
+                                                        <li class="CmLastBcItem" property="itemListElement" typeof="ListItem">
+                                                            <span property="item" typeof="WebPage">
+                                                                <span class="CmLastItemTxt" property="name"><?= $lastKey ?></span>
+                                                            </span>
+                                                            <meta property="position" content="<?= $pos ?>">
+                                                        </li>
+                            <? }
     ?></ul><?
 }
 
@@ -192,31 +193,31 @@ function PrintProductAvailable_x($aPrice, $Res = array())
             $col = 'Y'; ?><div class="cm_InStock <? if ($Res['ACTIVE_TAB'] == 'TABLE') {
                    echo 'StockTableStyle';
                } ?> CmMargZ">
-                                        <svg class="InStockImg" viewBox="-1 -2 24 24" style="<? if ($Res['ACTIVE_TAB'] == 'TABLE') {
-                                            echo 'margin:0px;';
-                                        } ?>">
-                                            <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
-                                        </svg>
-                                        <!-- <span class="InstockTxt <? if ($Res['ACTIVE_TAB'] == 'TABLE') {
-                                            echo 'StockTableTxt';
-                                        } ?>"><?= Lng_x('Available', 1) ?></span> -->
-                                    </div><?
+                                                                                        <svg class="InStockImg" viewBox="-1 -2 24 24" style="<? if ($Res['ACTIVE_TAB'] == 'TABLE') {
+                                                                                            echo 'margin:0px;';
+                                                                                        } ?>">
+                                                                                            <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/>
+                                                                                        </svg>
+                                                                                        <!-- <span class="InstockTxt <? if ($Res['ACTIVE_TAB'] == 'TABLE') {
+                                                                                            echo 'StockTableTxt';
+                                                                                        } ?>"><?= Lng_x('Available', 1) ?></span> -->
+                                                                                    </div><?
         } else {
             ?><div class="cm_OutOfStock <? if ($Res['ACTIVE_TAB'] == 'TABLE') {
                 echo 'StockTableStyle';
             } ?>">
-                                            <svg class="OutStockImg" width="14" height="16" viewBox="0 0 24 24" style="<? if ($Res['ACTIVE_TAB'] == 'TABLE') {
-                                                echo 'margin:0px;';
-                                            } ?>">
-                                                    <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" fill="#FFFFFF"/>
-                                            </svg>
-                                            <!-- <span class="OutstockTxt <? if ($Res['ACTIVE_TAB'] == 'TABLE') {
-                                                echo 'StockTableTxt';
-                                            } ?>"><?= Lng_x('Not_available', 1) ?></span> -->
-                                        </div><?
+                                                                                            <svg class="OutStockImg" width="14" height="16" viewBox="0 0 24 24" style="<? if ($Res['ACTIVE_TAB'] == 'TABLE') {
+                                                                                                echo 'margin:0px;';
+                                                                                            } ?>">
+                                                                                                    <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" fill="#FFFFFF"/>
+                                                                                            </svg>
+                                                                                            <!-- <span class="OutstockTxt <? if ($Res['ACTIVE_TAB'] == 'TABLE') {
+                                                                                                echo 'StockTableTxt';
+                                                                                            } ?>"><?= Lng_x('Not_available', 1) ?></span> -->
+                                                                                        </div><?
         }
     } else { ?>
-                        <div class="CmListPrAvail"><?= $aPrice['AVAILABLE_VIEW'] ?></div>
-            <? }
+                                                        <div class="CmListPrAvail"><?= $aPrice['AVAILABLE_VIEW'] ?></div>
+                            <? }
 }
 ?>

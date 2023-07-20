@@ -62,14 +62,14 @@ next: "Next",
 added_to_cart: "is added to your shopping cart."
 },
 
-moneyFormat: "\u003cspan class=money\u003e$  {{ amount }}\u003c\/span\u003e"
+moneyFormat: "\u003cspan class=money\u003e$       {{ amount }}\u003c\/span\u003e"
 }
 
-window.shop_currency = "USD";
+window.shop_currency = "EUR";
 window.multi_lang = true;
 window.show_multiple_currencies = true;
 window.show_auto_currency = false;
-window.money_format = "\u003cspan class=money\u003e$  {{ amount }}\u003c\/span\u003e";
+window.money_format = "\u003cspan class=money\u003e$       {{ amount }}\u003c\/span\u003e";
 window.router = "";
 document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
 		</script>
@@ -227,7 +227,7 @@ document.documentElement.className = document.documentElement.className.replace(
 									<div class="logo-wrapper" itemscope itemtype="http://schema.org/Organization">
 										<meta itemprop="url" content="https://protuning.com">
 										<a href="/" class="site-header__logo-image" aria-label="logo" style="width: 205px">
-											<img itemprop="logo" src="https://cdn.shopify.com/s/files/1/0278/4434/5931/files/logo-4_205x.png?v=1613785431" alt="spark-theme-automotive">
+											<img itemprop="logo" src="{{ logo }}" alt="spark-theme-automotive">
 										</a>
 									</div>
 								</div>
@@ -317,7 +317,7 @@ document.documentElement.className = document.documentElement.className.replace(
 													</div>
 													<div class="login-footer">
 														<p class="intro">Create your account and enjoy a new shopping
-																														                        experience.</p>
+																																																																																																									                        experience.</p>
 														<a class="btn btn--secondary-accent" href="/signup" aria-label="register">Create a new account</a>
 													</div>
 												</div>
@@ -332,19 +332,19 @@ document.documentElement.className = document.documentElement.className.replace(
 											{#                    <use xlink:href="#icon-heart"/>#}
 											{#                  </svg>#}
 												<svg class="icon CmGarageFull CmColorFi" viewbox="0 0 252.094 252.094"> <path d="M196.979,146.785c-1.091,0-2.214,0.157-3.338,0.467l-4.228,1.165l-6.229-15.173c-3.492-8.506-13.814-15.426-23.01-15.426
-																										                        H91.808c-9.195,0-19.518,6.921-23.009,15.427l-6.218,15.145l-4.127-1.137c-1.124-0.31-2.247-0.467-3.338-0.467
-																										                        c-5.485,0-9.467,3.935-9.467,9.356c0,5.352,3.906,9.858,9.2,11.211c-2.903,8.017-5.159,20.034-5.159,27.929v32.287
-																										                        c0,6.893,5.607,12.5,12.5,12.5h4.583c6.893,0,12.5-5.607,12.5-12.5v-6.04h93.435v6.04c0,6.893,5.607,12.5,12.5,12.5h4.585
-																										                        c6.893,0,12.5-5.607,12.5-12.5v-32.287c0-7.887-2.252-19.888-5.15-27.905c5.346-1.32,9.303-5.85,9.303-11.235
-																										                        C206.445,150.72,202.464,146.785,196.979,146.785z M70.352,159.384l10.161-24.754c2.089-5.088,8.298-9.251,13.798-9.251h63.363
-																										                        c5.5,0,11.709,4.163,13.798,9.251l10.161,24.754c2.089,5.088-0.702,9.251-6.202,9.251H76.554
-																										                        C71.054,168.635,68.263,164.472,70.352,159.384z M97.292,199.635c0,2.75-2.25,5-5,5H71.554c-2.75,0-5-2.25-5-5v-8.271
-																										                        c0-2.75,2.25-5,5-5h20.738c2.75,0,5,2.25,5,5V199.635z M185.203,199.635c0,2.75-2.25,5-5,5h-20.736c-2.75,0-5-2.25-5-5v-8.271
-																										                        c0-2.75,2.25-5,5-5h20.736c2.75,0,5,2.25,5,5V199.635z"></path>
+																																																																																											                        H91.808c-9.195,0-19.518,6.921-23.009,15.427l-6.218,15.145l-4.127-1.137c-1.124-0.31-2.247-0.467-3.338-0.467
+																																																																																											                        c-5.485,0-9.467,3.935-9.467,9.356c0,5.352,3.906,9.858,9.2,11.211c-2.903,8.017-5.159,20.034-5.159,27.929v32.287
+																																																																																											                        c0,6.893,5.607,12.5,12.5,12.5h4.583c6.893,0,12.5-5.607,12.5-12.5v-6.04h93.435v6.04c0,6.893,5.607,12.5,12.5,12.5h4.585
+																																																																																											                        c6.893,0,12.5-5.607,12.5-12.5v-32.287c0-7.887-2.252-19.888-5.15-27.905c5.346-1.32,9.303-5.85,9.303-11.235
+																																																																																											                        C206.445,150.72,202.464,146.785,196.979,146.785z M70.352,159.384l10.161-24.754c2.089-5.088,8.298-9.251,13.798-9.251h63.363
+																																																																																											                        c5.5,0,11.709,4.163,13.798,9.251l10.161,24.754c2.089,5.088-0.702,9.251-6.202,9.251H76.554
+																																																																																											                        C71.054,168.635,68.263,164.472,70.352,159.384z M97.292,199.635c0,2.75-2.25,5-5,5H71.554c-2.75,0-5-2.25-5-5v-8.271
+																																																																																											                        c0-2.75,2.25-5,5-5h20.738c2.75,0,5,2.25,5,5V199.635z M185.203,199.635c0,2.75-2.25,5-5,5h-20.736c-2.75,0-5-2.25-5-5v-8.271
+																																																																																											                        c0-2.75,2.25-5,5-5h20.736c2.75,0,5,2.25,5,5V199.635z"></path>
 												<path d="M246.545,71.538L131.625,4.175c-1.525-0.894-3.506-1.386-5.578-1.386c-2.072,0-4.053,0.492-5.578,1.386L5.549,71.538
-																										                        C2.386,73.392,0,77.556,0,81.223v160.582c0,4.135,3.364,7.5,7.5,7.5h12.912c4.136,0,7.5-3.365,7.5-7.5V105.917
-																										                        c0-1.378,1.121-2.5,2.5-2.5h191.268c1.379,0,2.5,1.122,2.5,2.5v135.888c0,4.135,3.364,7.5,7.5,7.5h12.913
-																										                        c4.136,0,7.5-3.365,7.5-7.5V81.223C252.094,77.556,249.708,73.392,246.545,71.538z"></path>
+																																																																																											                        C2.386,73.392,0,77.556,0,81.223v160.582c0,4.135,3.364,7.5,7.5,7.5h12.912c4.136,0,7.5-3.365,7.5-7.5V105.917
+																																																																																											                        c0-1.378,1.121-2.5,2.5-2.5h191.268c1.379,0,2.5,1.122,2.5,2.5v135.888c0,4.135,3.364,7.5,7.5,7.5h12.913
+																																																																																											                        c4.136,0,7.5-3.365,7.5-7.5V81.223C252.094,77.556,249.708,73.392,246.545,71.538z"></path>
 											</svg>
 											<span class="navUser-text-wrapper">{#                                        My Garage#}
 												{#                    {{ CM_GARAGE }}#}
@@ -408,11 +408,11 @@ document.documentElement.className = document.documentElement.className.replace(
 							</div>
 						</div>
 
-						<div class="header-bottom">
-							<div class="container">
-								{{ menu }}
-							</div>
-						</div>
+						{# <div class="header-bottom">
+													<div class="container">
+														{{ menu }}
+													</div>
+												</div> #}
 					</div>
 					<div class="halo-header-mobile">
 						<div class="header-Mobile-item text-left">
@@ -432,6 +432,19 @@ document.documentElement.className = document.documentElement.className.replace(
 										</svg>
 									</div>
 								</a>
+								{# <div class="search-form" data-ajax-search="">
+																																	<div class="header-search">
+																																		<form action="/search" method="get" class="input-group search-bar" role="search">
+																																			<input type="hidden" name="type" value="product">
+																																			<input type="text" name="q" value="dempus" placeholder="Search for a product..." class="input-group-field header-search__input" aria-label="Search Site" autocomplete="off">
+																																			<button type="submit" class="btn-search icon-search" title="search">
+																																				<svg class="icon">
+																																					<use xlink:href="#icon-search"></use>
+																																				</svg>
+																																			</button>
+																																		</form>
+																																	</div>
+																																</div> #}
 							</div>
 						</div>
 						<div class="header-Mobile-item text-center">

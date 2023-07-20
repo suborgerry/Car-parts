@@ -142,6 +142,7 @@ function VinNumWriteCookie(name, value, days){
         expires = "";
     }
     document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + expires + "; path=/";
+	document.cookie = 'RegNum=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
 
 function VinNumReadCookie(name){

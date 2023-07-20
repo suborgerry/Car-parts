@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+	<code>pasts-shipping</code>
+	<name>Pasts Shipping Module</name>
+	<version>1.0.0</version>
+	<author>EcomBaltic</author>
+	
+	<file path="catalog/controller/checkout/shipping_method.php">
+    	<operation>
+			<search>
+				<![CDATA[
+					if (!$json) {
+				]]>
+			</search>
+			
+			<add position="before">
+				<![CDATA[
+					if (!$json) {
+					
+					$shipping_method_title = '';
+					$shipping_method_code = '';
+					
+					if ( isset($this->request->post['shipping_method']) &&  
+					(
+					strpos($this->request->post['shipping_method'], 'pastterminal') > -1 ||
+					strpos($this->request->post['shipping_method'], 'pastcirclek') > -1 ||
+					strpos($this->request->post['shipping_method'], 'pastpickup') > -1 
+					)
+					) {
+					
+					if(!isset($this->request->post[$shipping[1]])){
+					$json['error']['warning'] = 'Select a location';
+					}else{
+					$pastterminalsshipping = explode('|', $this->request->post[$shipping[1]]);
+					if( isset($pastterminalsshipping[0]) && isset($pastterminalsshipping[1]) ){
+					$shipping_method_code = $pastterminalsshipping[0];
+					$shipping_method_title = $pastterminalsshipping[1];
+					}else{
+					$json['error']['warning'] = 'Select a location';
+					}
+					}
+					// $json['error']['warning'] = $this->model_extension_shipping_dpd_parcel->getNoParcelWarningText();
+					
+					}
+					}
+				]]>
+			</add>
+		</operation>
+		
+		<operation>
+			<search>
+				<![CDATA[
+					$this->session->data['shipping_methods'][$shipping[0]]['quote'][$shipping[1]];
+				]]>
+			</search>
+			
+			<add position="after">
+				<![CDATA[
+					if ( isset($this->request->post['shipping_method']) && strpos($this->request->post['shipping_method'], 'pastterminal') > -1  && $shipping_method_title != '') {
+					
+					$this->session->data['shipping_method']['pastcode'] = $shipping_method_code;
+					
+					$this->session->data['shipping_method']['title'] = $shipping_method_title;
+					}
+					
+					if ( isset($this->request->post['shipping_method']) && strpos($this->request->post['shipping_method'], 'pastcirclek') > -1  && $shipping_method_title != '') {
+					
+					$this->session->data['shipping_method']['pastcode'] = $shipping_method_code;
+					
+					$this->session->data['shipping_method']['title'] = $shipping_method_title;
+					}
+					
+					if ( isset($this->request->post['shipping_method']) && strpos($this->request->post['shipping_method'], 'pastpickup') > -1  && $shipping_method_title != '') {
+					
+					$this->session->data['shipping_method']['pastcode'] = $shipping_method_code;
+					
+					$this->session->data['shipping_method']['title'] = $shipping_method_title;
+					}
+					
+				]]>
+			</add>
+		</operation>
+		
+	</file>
+	
+	<file path="catalog/controller/api/shipping.php">
+    	<operation>
+			<search>
+				<![CDATA[
+					$json['shipping_methods'][$result['code']]
+				]]>
+			</search>
+			
+			<add position="before">
+				<![CDATA[
+					if ( $result['code'] &&  
+					(
+					strpos($result['code'], 'pastterminal') > -1 ||
+					strpos($result['code'], 'pastcirclek') > -1 ||
+					strpos($result['code'], 'pastpickup') > -1 
+					)
+					) { 
+					if($quote['quote']){
+					foreach($quote['quote'] as $qk => $qv){	
+					$quote['quote'][$qk] = $qv;			
+					$quote['quote'][$qk]['title'] = $qv['title_alternate'];
+					}
+					} 														
+					}
+				]]>
+			</add>
+		</operation>
+		
+		<operation>
+			<search index="2">
+				<![CDATA[
+					if (!$json) {
+				]]>
+			</search>
+			
+			<add position="before">
+				<![CDATA[
+					if (!$json) {
+					
+					$shipping_method_title = '';
+					$shipping_method_code = '';
+					
+					if ( isset($this->request->post['shipping_method']) && ( strpos($this->request->post['shipping_method'], 'pastterminal') > -1 || strpos($this->request->post['shipping_method'], 'pastpickup') > -1 || strpos($this->request->post['shipping_method'], 'pastcirclek') > -1)) {
+					
+					if(!isset($this->request->post[$shipping[1]])){
+					$json['error'] = 'Select a location';
+					}else{
+					$pastterminalsshipping = explode('|', $this->request->post[$shipping[1]]);
+					if( isset($pastterminalsshipping[0]) && isset($pastterminalsshipping[1]) ){
+					$shipping_method_code = $pastterminalsshipping[0];
+					$shipping_method_title = $pastterminalsshipping[1];
+					}else{
+					$json['error'] = 'Select a location';
+					}
+					}
+					}
+					}
+				]]>
+			</add>
+		</operation> 
+		
+		<operation>
+			<search>
+				<![CDATA[
+					$this->session->data['shipping_methods'][$shipping[0]]['quote'][$shipping[1]];
+				]]>
+			</search>
+			
+			<add position="after">
+				<![CDATA[
+					if ( 
+					$shipping_method_title != '' && 
+					( 
+					(isset($this->request->post['shipping_method']) && strpos($this->request->post['shipping_method'], 'pastterminal') > -1) || 
+					(isset($this->request->post['shipping_method']) && strpos($this->request->post['shipping_method'], 'pastpickup') > -1 ) || 
+					(isset($this->request->post['shipping_method']) && strpos($this->request->post['shipping_method'], 'pastcirclek') > -1 )
+					)
+					) {
+					
+					$this->session->data['shipping_method']['pastcode'] = $shipping_method_code;
+					
+					$this->session->data['shipping_method']['title'] = $shipping_method_title;
+					}
+				]]>
+			</add>
+		</operation>       
+		
+	</file>
+	
+	<file path="catalog/model/checkout/order.php">
+		<operation>
+			<search>
+				<![CDATA[
+					if (isset($data['totals'])) {
+				]]>
+			</search>
+			
+			<add position="before">
+				<![CDATA[
+					
+               if ( isset($data['shipping_code']) && 
+					(
+					strpos($data['shipping_code'], 'pastterminal') > -1 ||
+					strpos($data['shipping_code'], 'pastcirclek') > -1 ||
+					strpos($data['shipping_code'], 'pastpickup') > -1 
+					) 
+					) {
+					
+					$this->db->query("DELETE FROM " . DB_PREFIX . "pasts_orders WHERE order_id = '" . (int)$order_id . "'");
+					
+					if(isset($this->session->data['shipping_method']['pastcode'])){
+					$this->db->query("INSERT INTO " . DB_PREFIX . "pasts_orders SET order_id = '" . (int)$order_id . "', shipping_dropdown_value = '" . $this->db->escape($this->session->data['shipping_method']['pastcode']) . "', shipping_dropdown_text = '" . $this->db->escape($this->session->data['shipping_method']['title']) . "'");
+					}                    
+					}
+				]]>
+			</add>
+		</operation>
+		
+	</file>
+	
+	<file path="system/library/cart/cart.php">
+    	<operation>
+			<search>
+				<![CDATA[
+					public function hasDownload() {
+				]]>
+			</search>
+			
+			<add position="before">
+				<![CDATA[
+					public function getVolume() {
+					$volume = 0;
+					
+					foreach ($this->getProducts() as $product) {
+					if ($product['shipping']) {
+					$volume += $product['length'] * $product['width'] * $product['height']; 		
+					}
+					}
+					
+					return $volume;
+					}
+				]]>
+			</add>
+		</operation>        
+		
+	</file> 
+	
+	<file path="catalog/model/extension/payment/cod.php">       
+		<operation>
+			<search>
+				<![CDATA[
+					$method_data = array();
+				]]>
+			</search>
+			
+			<add position="before">
+				<![CDATA[
+				if ($status && isset($this->session->data['shipping_method']) && $this->session->data['shipping_method']) {
+					$shipping_method = explode('.', $this->session->data['shipping_method']['code']);
+					$country = $this->session->data['shipping_address']['iso_code_2'] ?? '';
+					$country = mb_strtoupper($country);
+					$cod_string = mb_strtolower('shipping_'.$shipping_method[0]) . '_cod';
+
+					switch (mb_strtolower($shipping_method[0])) {
+						case "pastterminal":
+						case "pastexpress":
+							$status = false;
+							if ($country == 'LV' || $country == 'LT') {
+								if ($this->config->get($cod_string) == 1) {
+									$status = true;
+								}
+							}
+							break;
+						case "pastcirclek":
+						case "pastpickup":
+							$status = false;
+							if ($country == 'LV') {
+								if ($this->config->get($cod_string) == 1) {
+									$status = true;
+								}
+							}
+							break;
+						case "pastmypost":
+							$status = false;
+							break;
+					}
+				}
+				]]>
+			</add>
+		</operation>                
+	</file> 
+	
+	<file path="catalog/controller/api/order.php">
+    	<operation>
+			<search>
+				<![CDATA[
+					if (!isset($this->session->data['shipping_method'])) {
+				]]>
+			</search>
+			
+			<add position="before">
+				<![CDATA[
+					if (!$json) { 
+					
+					$shipping_method_title = '';
+					$shipping_method_code = '';
+					
+					if ( isset($this->request->post['shipping_method']) && ( strpos($this->request->post['shipping_method'], 'pastterminal') > -1 || strpos($this->request->post['shipping_method'], 'pastpickup') > -1 || strpos($this->request->post['shipping_method'], 'pastcirclek') > -1)) {
+					
+					if(!isset($this->request->post[$shipping[1]])){
+					$json['error'] = 'Select a location';
+					}else{
+					$pastterminalsshipping = explode('|', $this->request->post[$shipping[1]]);
+					if( isset($pastterminalsshipping[0]) && isset($pastterminalsshipping[1]) ){
+					$shipping_method_code = $pastterminalsshipping[0];
+					$shipping_method_title = $pastterminalsshipping[1];
+					}else{
+					$json['error'] = 'Select a location';
+					}
+					}
+					}
+					
+					if ( $shipping_method_title != '' && isset($this->request->post['shipping_method']) &&
+					( strpos($this->request->post['shipping_method'], 'pastterminal') > -1 || strpos($this->request->post['shipping_method'], 'pastpickup') > -1 || strpos($this->request->post['shipping_method'], 'pastcirclek') > -1 ) ) {
+					
+					if (isset($this->session->data['shipping_method'])) {
+					$this->session->data['shipping_method']['pastcode'] = $shipping_method_code;
+					
+					$this->session->data['shipping_method']['title'] = $shipping_method_title;
+					}
+					}
+					}
+				]]>
+			</add>
+		</operation>     
+	</file>  	
+	
+	<file path="catalog/view/theme/*/template/checkout/checkout.twig">
+		<operation>
+			<search>
+				<![CDATA[
+					$('#collapse-shipping-method input[type=\'radio\']:checked, #collapse-shipping-method textarea'),
+				]]>
+			</search>
+			
+			<add position="replace">
+				<![CDATA[
+					$('#collapse-shipping-method input[type=\'radio\']:checked, #collapse-shipping-method textarea, #collapse-shipping-method select'),
+				]]>
+			</add>
+		</operation>        
+	</file>
+</modification>

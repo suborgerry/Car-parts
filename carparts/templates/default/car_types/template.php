@@ -35,7 +35,7 @@ if (isset($aRes['ACTUAL'])) {
             <div class="cmProdLogo" title="<?= $aRes['BRAND_CODE'] ?>" style="background:url(/<?=CM_DIR?>/media/brands/90/<?=$aRes['BRAND_CODE']?>.png)"></div>
         </a>
         <div class="CmFBylit">
-            <?if(count($aResLit)>1){?>
+            <?if($aResLit AND  count($aResLit)>1){?>
             <div class="block_filt">
                 <div class="fByLiterTitle">
                         <?=Lng_x('Filter_by_liter')?>:

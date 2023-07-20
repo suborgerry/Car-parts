@@ -22,79 +22,10 @@ function renderStarRating($rating,$maxRating=5) {
 // END RATING STARS FUNCTION
 
 ?>
-<div class="cm_listView" id="main-collection-product-grid">
-    <div class="main_bl halo-column halo-column-product">
+<div class="cm_listView">
+    <div class="main_bl">
         <?foreach($aRes['PRODUCTS'] as $PKEY=>$aProd) {
             $bColor = mb_strlen($aProd['BColor'])==3 ? str_repeat($aProd['BColor'], 2) : $aProd['BColor'];?>
-            <div class="halo-item">
-                <div class="product-card layout-1" data-product-card="" data-product-id="product-4356682154059" data-id="4356682154059">
-                    <div class="product-image">
-                        <a class="product_wishlist wishlist " aria-label="wishlist" data-icon-wishlist="" href="interior.html#" data-product-handle="lobortis-maxim-tesque-lobortis-acuinon-efficitur-dapinica" data-id="4356682154059">
-                            <svg class="icon"><use xlink:href="#icon-heart"></use></svg>
-                        </a>
-                        <div class="product_badges"></div>
-                            <a class="product-link image-swap" href="https://spark-theme-automotive.myshopify.com/collections/interior/products/lobortis-maxim-tesque-lobortis-acuinon-efficitur-dapinica" aria-label="link">
-                                <img class="image-one lazyautosizes lazyloaded" src="//cdn.shopify.com/s/files/1/0278/4434/5931/products/interior-2b_270x270.jpg?v=1573642658" data-src="//cdn.shopify.com/s/files/1/0278/4434/5931/products/interior-2b_270x270.jpg?v=1573642658" data-sizes="auto" alt="Lobortis maxim tesque lobortis acuinon efficitur dapinica" data-image="" sizes="280px">
-                                <img class="image-two lazyautosizes lazyloaded" src="//cdn.shopify.com/s/files/1/0278/4434/5931/products/interior-2_270x270.jpg?v=1573642658" data-src="//cdn.shopify.com/s/files/1/0278/4434/5931/products/interior-2_270x270.jpg?v=1573642658" data-sizes="auto" alt="Lobortis maxim tesque lobortis acuinon efficitur dapinica" data-image="" sizes="280px">
-                            </a>
-                            <a class="product-quickview" aria-label="quickview" href="javascript:void(0)" id="lobortis-maxim-tesque-lobortis-acuinon-efficitur-dapinica" data-quickview="">
-                                Quick View
-                            </a>
-                            <div class="product-action">
-                            <form action="https://spark-theme-automotive.myshopify.com/cart/add" method="post" class="variants" id="list-product-form-4356682154059" data-id="product-actions-4356682154059" enctype="multipart/form-data">
-                                <a class="btn product-btn" href="../products/lobortis-maxim-tesque-lobortis-acuinon-efficitur-dapinica.html" aria-label="button">
-                                    Choose options
-                                </a>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-detail">
-                                <div class="product-vendor">
-                                    <a href="vendors@q=Burbery®.html" title="Burbery®">Burbery®</a>
-                                </div>
-                                <h4 class="product-title">
-                                    <a href="https://spark-theme-automotive.myshopify.com/collections/interior/products/lobortis-maxim-tesque-lobortis-acuinon-efficitur-dapinica" aria-label="title">Lobortis maxim tesque lobortis acuinon efficitur dapinica</a>
-                                </h4>
-                            <div class="product-reviews">
-                                <span class="spr-badge" data-id="4356682154059" id="spr_badge_4356682154059" data-rating=""><i class="spr-icon spr-icon-star-empty"></i><i class="spr-icon spr-icon-star-empty"></i><i class="spr-icon spr-icon-star-empty"></i><i class="spr-icon spr-icon-star-empty"></i><i class="spr-icon spr-icon-star-empty"></i></span>
-                                <div class="product-compare-btn " data-icon-compare="" data-compare-product-handle="lobortis-maxim-tesque-lobortis-acuinon-efficitur-dapinica" data-id="4356682154059">
-                                    <input id="compare_4356682154059" class="compare" type="checkbox" name="compare">
-                                    <label for="compare_4356682154059">
-                                        <span>compare</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="product-price " data-price="">
-                                <span class="price-item price-item--regular" data-regular-price="">
-                                    <span class="money" data-currency-usd="$680.00">$680.00</span>
-                                </span>
-                                <span class="price-item price-item--sale" data-sale-price=""></span>
-                            </div>
-                            <div class="product-description">
-                                Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an...
-                            </div>
-                        </div>
-                        <div class="product-actions">
-                            <div class="product-action">
-                                <form action="https://spark-theme-automotive.myshopify.com/cart/add" method="post" class="variants" id="list-product-form-4356682154059" data-id="product-actions-4356682154059" enctype="multipart/form-data">
-                                    
-                                        
-                                            <a class="btn product-btn" href="../products/lobortis-maxim-tesque-lobortis-acuinon-efficitur-dapinica.html" aria-label="button">
-                                                Choose options
-                                            </a>
-                                        
-                                    
-                                </form>
-                            </div>
-                            <button class="wishlist btn btn--secondary " data-icon-wishlist="" data-product-handle="lobortis-maxim-tesque-lobortis-acuinon-efficitur-dapinica" data-id="4356682154059">
-                                <span class="add">Add to Wish List</span>
-                                <span class="remove">Remove Wish List</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="row_bl CmAdmButsProduct" <?=isAdmButs_Product_x($aProd)?> >
                 <div class="CmInnerBlockList">
                     <a href="<?=$aProd['Link']?>" class="CmMobViewBrandNameBlock">
@@ -146,42 +77,6 @@ function renderStarRating($rating,$maxRating=5) {
                         <div class="desc_bl">
                             <div class="CmNameInfoPropsWrapBl">
                                 <div class="CmFitInfoBlWrap">
-                                    <?if($aProd['FitPos']){?>
-                                        <div class="CmWrapSideSet">
-                                            <div class="CmInnerSideBl">
-                                                <div class="CmFrontSideBl">
-                                                    <div class="CmFrontLeft CmVehicWheel CmFitPos<?=$aProd['FitPos']['FL']?>"></div>
-                                                    <div class="CmMiddleBl"></div>
-                                                    <div class="CmMiddleCenterF"></div>
-                                                    <div class="CmMiddleBl"></div>
-                                                    <div class="CmFrontRight CmVehicWheel CmFitPos<?=$aProd['FitPos']['FR']?>"></div>
-                                                </div>
-                                                <div class="CmShaftCent"></div>
-                                                <div class="CmRearSideBl">
-                                                    <div class="CmRearLeft CmVehicWheel CmFitPos<?=$aProd['FitPos']['RL']?>"></div>
-                                                    <div class="CmMiddleBl"></div>
-                                                    <div class="CmMiddleCenterR"></div>
-                                                    <div class="CmMiddleBl"></div>
-                                                    <div class="CmRearRight CmVehicWheel CmFitPos<?=$aProd['FitPos']['RR']?>"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <?}?>
-        							<?//if($aProd['FitPos']){?>
-        								<!-- <div class="CmFitPosBox">
-        									<div class="CmFitPosMap">
-        										<div class="CmFitPosPoint CmFitPosFL CmFitPos<?=$aProd['FitPos']['FL']?>"></div>
-        										<div class="CmFitPosPoint CmFitPosFR CmFitPos<?=$aProd['FitPos']['FR']?>"></div>
-        										<div class="CmFitPosPoint CmFitPosMid CmFitPos"></div>
-        										<div class="CmFitPosPoint CmFitPosRL CmFitPos<?=$aProd['FitPos']['RL']?>"></div>
-        										<div class="CmFitPosPoint CmFitPosRR CmFitPos<?=$aProd['FitPos']['RR']?>"></div>
-        									</div>
-        									<div class="CmFitPosText">
-        										<?=Lng_x('Installation side',1)?>:<br>
-        										<span><?=$aProd['FitPos']['Text']?></span>
-        									</div>
-        								</div> -->
-        							<?//}?>
                                     <div class="info_bl" data-artnum="<?=$aProd['ArtNum']?>" data-brand="<?=$aProd['Brand']?>" data-link="<?=$aProd['Link']?>">
 										<?if($aProd['COUNTRY']){?>
 											<div class="CmCountry_l CmCountryList CmTitShow" title="<?=$aProd['COUNTRY_NAME']?>" style="background-image:url(/<?=CM_DIR?>/media/country/<?=$aProd['COUNTRY']?>.png)"></div>
@@ -214,12 +109,44 @@ function renderStarRating($rating,$maxRating=5) {
                                     </div>
                                 </a>
                                 <div class="CmNamePropsBlock">
-                                    <?if($aProd['TrdNums']){?>
+									<?if($aProd['TrdNums']){?>
                                         <div class="CmListTrdNums"><b><?=Lng_x('Trade_numbers',1)?></b>: <?=$aProd['TrdNums']?></div>
                                     <?}?>
                                     <?if($aProd['PartsIncluded']){?>
                                         <div class="CmListTrdNums"><b><?=Lng_x('Parts_included',1)?></b>: <?=$aProd['PartsIncluded']?></div>
                                     <?}?>
+									
+									
+									
+									
+									
+									<?
+									//Car Fitting position
+									//////////////////////
+									if($aProd['FitPos']){
+										$FiTx=''; $FiShow=false;
+										$FrontRear = substr($aProd['FitPos'],0,1);
+										$LeftRight = substr($aProd['FitPos'],1,1);
+										if($FrontRear=='F'){$FiTx=Lng_x('Front',true).' '; $FiShow=true;}
+										if($FrontRear=='R'){$FiTx=Lng_x('Rear',true).' '; $FiShow=true;}
+										if($LeftRight=='L'){$FiTx.=Lng_x('Left',true).' ';}
+										if($LeftRight=='R'){$FiTx.=Lng_x('Right',true).' ';}
+										if($FiShow){?>
+											<div class="CmCarFitPos">
+												<div class="CmCarFitPosSvg OnlyPos<?=$LeftRight?>">
+													<?=$aListSVG['Car'.$FrontRear.'X']?>
+												</div>
+												<div class="CmCarFitPosTxt">
+													<?=Lng_x('Installation side',1)?>:<br>
+													<span class="CmColorTx"><?=$FiTx?></span>
+												</div>
+											</div><?
+										}
+									}?>
+									
+									
+									
+									
                                     <?if($aProd['CRITERIAS']){
                                       $countCr = count($aRes['CRITERIAS']);
                                       $resCr = count($aRes['CRITERIAS']) - 4;?>
@@ -283,6 +210,9 @@ function renderStarRating($rating,$maxRating=5) {
                             include(dirname(__DIR__).'/product_page/blocks/prices.php');?>
                             <?AdmWsRequests_x($aProd); //WebServices messages for Admin?>
                             <div class="info_bl_MobView" data-artnum="<?=$aProd['ArtNum']?>" data-brand="<?=$aProd['Brand']?>" data-link="<?=$aProd['Link']?>">
+								<?if($aProd['COUNTRY']){?>
+									<div class="CmCountry_l CmCountryList CmTitShow" title="<?=$aProd['COUNTRY_NAME']?>" style="margin-top:13px; background-image:url(/<?=CM_DIR?>/media/country/<?=$aProd['COUNTRY']?>.png)"></div>
+								<?}?>
                                 <div class="ProductInfoOe infoBlockElem infoIconMob CmTitShow" data-furl="<?=PROTOCOL_DOMAIN_x?><?=$aProd['Link']?>" data-moduledir="<?=CM_DIR?>" data-tab="Articles" title="<?=Lng_x('OE_Numbers');?>">
                                     <svg class="cm_svgInfoMob CmColorFih" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-.001 5.75c.69 0 1.251.56 1.251 1.25s-.561 1.25-1.251 1.25-1.249-.56-1.249-1.25.559-1.25 1.249-1.25zm2.001 12.25h-4v-1c.484-.179 1-.201 1-.735v-4.467c0-.534-.516-.618-1-.797v-1h3v6.265c0 .535.517.558 1 .735v.999z"/></svg>
                                 </div>

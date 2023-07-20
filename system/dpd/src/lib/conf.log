@@ -1,0 +1,78 @@
+Array
+(
+    [ID] => 3717574901
+    [NAME] => iPhone
+    [QUANTITY] => 1
+    [CARGO] => 101
+    [NPP] => 101
+    [VAT] => 
+)
+Array
+(
+    [ID] => DELIVERY
+    [NAME] => Доставка
+    [QUANTITY] => 1
+    [CARGO] => 0
+    [NPP] => 747.34
+    [VAT] => 
+)
+Array
+(
+    [ID] => 3717574901
+    [NAME] => iPhone
+    [QUANTITY] => 1
+    [CARGO] => 101
+    [NPP] => 101
+    [VAT] => 
+)
+Array
+(
+    [ID] => DELIVERY
+    [NAME] => Доставка
+    [QUANTITY] => 1
+    [CARGO] => 0
+    [NPP] => 747.34
+    [VAT] => 
+)
+Array
+(
+    [ID] => 3717574901
+    [NAME] => iPhone
+    [QUANTITY] => 1
+    [CARGO] => 101
+    [NPP] => 101
+    [VAT] => 
+)
+Array
+(
+    [ID] => DELIVERY
+    [NAME] => Доставка
+    [QUANTITY] => 1
+    [CARGO] => 0
+    [NPP] => 747.34
+    [VAT] => 
+)
+Array
+(
+    [ID] => 40
+    [NAME] => iPhone
+    [QUANTITY] => 1
+    [VAT_RATE] => Без НДС
+    [CARGO] => 101
+    [NPP] => 101
+    [GTIN] => dsadsa
+    [SERIAL] => dasw
+    [VAT] => 
+)
+Array
+(
+    [ID] => 40
+    [NAME] => iPhone
+    [QUANTITY] => 1
+    [VAT_RATE] => Без НДС
+    [CARGO] => 101
+    [NPP] => 101
+    [GTIN] => dsa
+    [SERIAL] => 12d1
+    [VAT] => 
+)

@@ -1,16 +1,10 @@
 {{ header }}
 <div id="checkout-checkout" class="container">
-    <div class="breadcrumb-wrapper">
-    <ul class="breadcrumb">
-      {% for breadcrumb in breadcrumbs %}
-        <li class="item is-active"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a>
-          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-right" viewBox="0 0 478.448 478.448"><g><g>
-                <polygon points="131.659,0 100.494,32.035 313.804,239.232 100.494,446.373 131.65,478.448 377.954,239.232"></polygon>
-              </g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
   {% if error_warning %}
   <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -817,16 +811,5 @@ $(document).delegate('#button-payment-method', 'click', function() {
     });
 });
 //--></script>
-{{ footer }}
-</div>
-{{ footer_fixed }}
-{{ mobile_nav }}
-
-{{ js_scripts }}
-{{ modal_dialog }}
-{#{{ newsletter }}#}
-{{ cart_popup }}
-{{ modal }}
-
-<div class="overlay_background"></div>
-<div class="overlay_background_2"></div>
+{{ footer_cart }}
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

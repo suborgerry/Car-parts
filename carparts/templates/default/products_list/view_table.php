@@ -18,17 +18,21 @@
 		</div>
 		<?//if($aProd['PricesCount']){?>
 			<div class="CmAvalDelStockWrap <?if(HIDE_PRODUCTS_COUNT){?>CmGrid1Fr<?}?>">
-				<div class="CmAvalTitl <?if(HIDE_PRODUCTS_COUNT){?>CmBordRightN<?}?>">
-					<span><?=Lng_x('Availability',0)?></span>
-				</div>
+				<?if(PRICES_DISPLAY_QUANTITY){?>
+					<div class="CmAvalTitl <?if(HIDE_PRODUCTS_COUNT){?>CmBordRightN<?}?>">
+						<span><?=Lng_x('Availability',0)?></span>
+					</div>
+				<?}?>
 				<?if(!HIDE_PRODUCTS_COUNT){?>
 					<div class="CmDelivTitl">
 						<span><?=Lng_x('Dtime_delivery',0)?></span>
 					</div>
 				<?}?>
-				<div class="CmStockTitl">
-					<span><?=Lng_x('Stock');?></span>
-				</div>
+				<?if(PRICES_DISPLAY_QUANTITY){?>
+					<div class="CmStockTitl">
+						<span><?=Lng_x('Stock');?></span>
+					</div>
+				<?}?>
 			</div>
 		<?//}?>
 		<div class="CmPriceTitl"><?=Lng_x('Price')?></div>
@@ -68,9 +72,11 @@
 					<?$aProd['FirstPrice'] = array_shift($aProd['PRICES']);?>
 					<div class="WsDataTb_x" <?if($aProd['WsAjax']){?>data-dir="<?=CM_DIR?>" data-artnum="<?=$aProd['ArtNum']?>" data-brand="<?=$aProd['Brand']?>"<?}?>>
 						<div class="CmAvDelStWrap <?if(HIDE_PRODUCTS_COUNT){?>CmGrid1Fr<?}?>">
-							<div class="CmAvailNumBlock CmColorTx CmTitShow <?if(HIDE_PRODUCTS_COUNT){?>CmBordRightN<?}?>" title="<?=Lng_x('Availability');?>">
-								<?PrintProductAvailable_x($aProd['FirstPrice'], $aRes)?>
-							</div>
+							<?if(PRICES_DISPLAY_QUANTITY){?>
+								<div class="CmAvailNumBlock CmColorTx CmTitShow <?if(HIDE_PRODUCTS_COUNT){?>CmBordRightN<?}?>" title="<?=Lng_x('Availability');?>">
+									<?PrintProductAvailable_x($aProd['FirstPrice'], $aRes)?>
+								</div>
+							<?}?>
 							<?if(!HIDE_PRODUCTS_COUNT){?>
 								<div class="CmDeliveryBlock <?if($aProd['FirstPrice']['DELIVERY_NUM']==0){echo 'CmInStockDelivery';}else{echo 'CmTimeDelivery';}?> CmTitShow" title="<?=Lng_x('Dtime_delivery',0)?>">
 									<?if($aProd['FirstPrice']['DELIVERY_NUM']==0){?>
@@ -182,7 +188,7 @@
 															<svg class="<?if($prSort[0]=='Available'){?>CmColorFi<?}?> CmAvalOnPage fillBg" viewBox="0 0 24 24"><path d="M16.677 17.868l-.343.195v-1.717l.343-.195v1.717zm2.823-3.325l-.342.195v1.717l.342-.195v-1.717zm3.5-7.602v11.507l-9.75 5.552-12.25-6.978v-11.507l9.767-5.515 12.233 6.941zm-13.846-3.733l9.022 5.178 1.7-.917-9.113-5.17-1.609.909zm2.846 9.68l-9-5.218v8.19l9 5.126v-8.098zm3.021-2.809l-8.819-5.217-2.044 1.167 8.86 5.138 2.003-1.088zm5.979-.943l-2 1.078v2.786l-3 1.688v-2.856l-2 1.078v8.362l7-3.985v-8.151zm-4.907 7.348l-.349.199v1.713l.349-.195v-1.717zm1.405-.8l-.344.196v1.717l.344-.196v-1.717zm.574-.327l-.343.195v1.717l.343-.195v-1.717zm.584-.333l-.35.199v1.717l.35-.199v-1.717z"/></svg>
 														</div>
 													</th>
-													<?if(count($firstPr['OPTIONS_VIEW']) > 0 || count($prOpt) > 0){?>
+													<?if(($firstPr['OPTIONS_VIEW'] AND count($firstPr['OPTIONS_VIEW'])>0) || ($prOpt AND count($prOpt)>0) ){?>
 														<th class="CmOptionsTitl"></th>
 													<?}?>
 													<th>
@@ -242,7 +248,7 @@
 																	<?PrintProductAvailable_x($aPrice)?>
 																</div>
 															</td>
-															<?if(count($firstPr['OPTIONS_VIEW']) > 0 || count($prOpt)> 0){?>
+															<?if(($firstPr['OPTIONS_VIEW'] AND count($firstPr['OPTIONS_VIEW'])) || ($prOpt AND count($prOpt)>0) ){?>
 																<td>
 																	<div class="CmOptionsBlockInfo">
 																		<?foreach($aPrice['OPTIONS_VIEW'] as $aOpt){?>
@@ -346,7 +352,7 @@
 																	<?PrintProductAvailable_x($aPrice)?>
 																</div>
 															</td>
-															<?if(count($firstPr['OPTIONS_VIEW']) > 0 || count($prOpt)> 0){?>
+															<?if(($firstPr['OPTIONS_VIEW'] AND count($firstPr['OPTIONS_VIEW'])) || ($prOpt AND count($prOpt)>0) ){?>
 																<td>
 																	<div class="CmOptionsBlockInfo">
 																		<?foreach($aPrice['OPTIONS_VIEW'] as $aOpt){?>

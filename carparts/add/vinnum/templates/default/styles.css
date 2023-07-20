@@ -1,5 +1,5 @@
 .CmVinNumWrap{border-radius:4px; width:245px; padding:0px 0px 0px 0px; margin:2px 8px; border: 1px solid #637a59; position:relative; -webkit-touch-callout:none; -webkit-user-select:none; -khtml-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none; }
-input.CmVinNumField{width:100%; margin:0px; padding-left:10px; width:100%; min-height:unset !important; box-shadow:inset 1px 0px 4px 0px #c0c0c0; border-radius:4px; line-height:32px !important; height:32px !important; color:#237200; font-size:14px; text-align:left; font-weight:bold;  border:0px; text-transform:uppercase; background:#f6fff1;}
+input.CmVinNumField{width:100%; margin:0px; padding:0px; width:100%; min-height:unset !important; box-shadow:inset 1px 0px 4px 0px #c0c0c0; border-radius:4px; line-height:32px !important; height:32px !important; color:#237200; font-size:14px; text-align:left; font-weight:bold;  border:0px; text-transform:uppercase; background:#f6fff1;}
 input.CmVinNumField::placeholder {color:#c1c1c1; font-weight:normal; font-style:Italic; text-align:center!important; text-transform:capitalize!important;}
 input.CmVinNumField:focus{outline:none; }
 input.CmVinNumField:disabled{color:#e7f5ff; background:#e7f5ff!important;}

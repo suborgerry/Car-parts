@@ -1,0 +1,258 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+
+        <button id="button-submit-request" type="button" data-toggle="tooltip" title="{{ button_request }}" class="btn btn-success">{{ button_request }}</button>
+
+        <button type="submit" form="form-module" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    {% if error_warning %}
+    <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-module" class="form-horizontal">
+
+        <div class="form-group required">
+          <label class="col-sm-2 control-label" for="input-secretkey">{{ entry_secretkey }}</label>
+          <div class="col-sm-10">
+            <input type="text" name="secretkey" value="{{ secretkey }}" placeholder="{{ entry_secretkey }}" id="input-secretkey" class="form-control" />
+            {% if error_secretkey %}
+            <div class="text-danger">{{ error_secretkey }}</div>
+            {% endif %}
+          </div>
+        </div> 
+
+        <div class="form-group required">
+          <label class="col-sm-2 control-label" for="input-name"><span data-toggle="tooltip" title="{{ help_name }}">{{ entry_name }}</span></label>
+          <div class="col-sm-10">
+            <input type="text" name="name" value="{{ name }}" placeholder="{{ entry_name }}" id="input-name" class="form-control" />
+            {% if error_name %}
+            <div class="text-danger">{{ error_name }}</div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="form-group required">
+          <label class="col-sm-2 control-label" for="input-phone">{{ entry_phone }}</label>
+          <div class="col-sm-10">
+            <input type="text" name="phone" value="{{ phone }}" placeholder="{{ entry_phone }}" id="input-phone" class="form-control" />
+            {% if error_phone %}
+            <div class="text-danger">{{ error_phone }}</div>
+            {% endif %}
+          </div>
+        </div> 
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="input-email">{{ entry_email }}</label>
+          <div class="col-sm-10">
+            <input type="text" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="form-control" />                 
+          </div>
+        </div>
+
+        <div class="form-group required">
+          <label class="col-sm-2 control-label" for="input-city">{{ entry_city }}</label>
+          <div class="col-sm-10">
+            <input type="text" name="city" value="{{ city }}" placeholder="{{ entry_city }}" id="input-city" class="form-control" />
+            {% if error_city %}
+            <div class="text-danger">{{ error_city }}</div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="form-group required">
+          <label class="col-sm-2 control-label" for="input-area">{{ entry_area }}</label>
+          <div class="col-sm-10">
+            <input type="text" name="area" value="{{ area }}" placeholder="{{ entry_area }}" id="input-area" class="form-control" />
+            {% if error_area %}
+            <div class="text-danger">{{ error_area }}</div>
+            {% endif %}
+          </div>
+        </div> 
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="input-district">{{ entry_district }}</label>
+          <div class="col-sm-10">
+            <input type="text" name="district" value="{{ district }}" placeholder="{{ entry_district }}" id="input-district" class="form-control" />
+          </div>
+        </div> 
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="input-village">{{ entry_village }}</label>
+          <div class="col-sm-10">
+          <input type="text" name="village" value="{{ village }}" placeholder="{{ entry_village }}" id="input-village" class="form-control" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="input-street">{{ entry_street }}</label>
+          <div class="col-sm-10">
+            <input type="text" name="street" value="{{ street }}" placeholder="{{ entry_street }}" id="input-street" class="form-control" />
+          </div>
+        </div>         
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="input-house">{{ entry_house }}</label>
+          <div class="col-sm-10">
+            <input type="text" name="house" value="{{ house }}" placeholder="{{ entry_house }}" id="input-house" class="form-control" />
+          </div>
+        </div> 
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="input-apartment-nr">{{ entry_apartment_nr }}</label>
+          <div class="col-sm-10">
+            <input type="text" name="apartment_nr" value="{{ apartment_nr }}" placeholder="{{ entry_apartment_nr }}" id="input-apartment-nr" class="form-control" />
+          </div>
+        </div>
+
+        <div class="form-group required">
+          <label class="col-sm-2 control-label" for="input-zipcode">{{ entry_zipcode }}</label>
+          <div class="col-sm-10">
+            <input type="text" name="zipcode" value="{{ zipcode }}" placeholder="{{ entry_zipcode }}" id="input-zipcode" class="form-control" />
+            {% if error_zipcode %}
+            <div class="text-danger">{{ error_zipcode }}</div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="form-group required">
+          <label class="col-sm-2 control-label" for="input-date"><span data-toggle="tooltip" title="{{ help_when }}">{{ entry_date }}</span></label>
+          <div class="col-sm-10">
+          <input type="text" name="date" value="{{ date }}" placeholder="{{ entry_date }}" id="input-date" class="form-control" />
+          {% if error_date %}
+          <div class="text-danger">{{ error_date }}</div>
+          {% endif %}
+          </div>
+        </div>
+
+        <div class="form-group required">
+          <label class="col-sm-2 control-label" for="input-time-from"><span data-toggle="tooltip" title="{{ help_time_from }}">{{ entry_time_from }}</span></label>
+          <div class="col-sm-10">
+            <input type="text" name="time_from" value="{{ time_from }}" placeholder="{{ entry_time_from }}" id="input-time-from" class="form-control" />
+            {% if error_time_from %}
+            <div class="text-danger">{{ error_time_from }}</div>
+            {% endif %}
+          </div>
+        </div> 
+
+        <div class="form-group required">
+          <label class="col-sm-2 control-label" for="input-time-to"><span data-toggle="tooltip" title="{{ help_time_to }}">{{ entry_time_to }}</span></label>
+          <div class="col-sm-10">
+            <input type="text" name="time_to" value="{{ time_to }}" placeholder="{{ entry_time_to }}" id="input-time-to" class="form-control" />
+            {% if error_time_to %}
+            <div class="text-danger">{{ error_time_to }}</div>
+            {% endif %}
+          </div>
+        </div>         
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="input-transport-type">{{ entry_transport_type }}</label>
+          <div class="col-sm-10">
+            <select name="transport_type" id="input-transport-type" class="form-control">
+              {% if transport_type == 1 %}
+              <option value="1" selected="selected">Bus</option>
+              <option value="2">Truck</option>
+              {% else %}
+              <option value="1">Bus</option>
+              <option value="2" selected="selected">Truck</option>
+              {% endif %}
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group ">
+          <label class="col-sm-2 control-label" for="input-parcel-strids"><span data-toggle="tooltip" title="{{ help_parcels }}">{{ entry_parcel_strids }}</span></label>
+          <div class="col-sm-10">
+            <input type="text" name="parcel_strids" value="{{ parcel_strids }}" placeholder="{{ entry_parcel_strids }}" id="input-parcel-strids" class="form-control" />
+          </div>
+        </div> 
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="input-manifest"><span data-toggle="tooltip" title="{{ help_manifest }}">{{ entry_manifest }}</span></label>
+          <div class="col-sm-10">
+            <input type="text" name="manifest" value="{{ manifest }}" placeholder="{{ entry_manifest }}" id="input-manifest" class="form-control" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="input-cbm"><span data-toggle="tooltip" title="{{ help_cbm }}">{{ entry_cbm }}</span></label>
+          <div class="col-sm-10">
+          <input type="text" name="cbm" value="{{ cbm }}" placeholder="{{ entry_cbm }}" id="input-cbm" class="form-control" />
+          </div>
+        </div> 
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="input-ldm"><span data-toggle="tooltip" title="{{ help_ldm }}">{{ entry_ldm }}</span></label>
+          <div class="col-sm-10">
+            <input type="text" name="ldm" value="{{ ldm }}" placeholder="{{ entry_ldm }}" id="input-ldm" class="form-control" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="input-weight"><span data-toggle="tooltip" title="{{ help_weight }}">{{ entry_weight }}</span></label>
+          <div class="col-sm-10">
+            <input type="text" name="weight" value="{{ weight }}" placeholder="{{ entry_weight }}" id="input-weight" class="form-control" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="input-comments">{{ entry_comments }}</label>
+          <div class="col-sm-10">
+            <input type="text" name="comments" value="{{ comments }}" placeholder="{{ entry_comments }}" id="input-comments" class="form-control" />
+          </div>
+        </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+
+$('#button-submit-request').on('click', function() {
+
+  $.ajax({
+      url: 'index.php?route=extension/module/pastscourier/submitRequest&user_token={{ user_token }}',
+      type: 'post',
+      data: $('#form-module').serialize(),
+      dataType: 'json',      
+      beforeSend: function() {
+        $('#button-submit-request').button('loading');
+      },
+      complete: function() {
+        $('#button-submit-request').button('reset');
+      },
+      success: function(json) {
+        $('.alert').remove();
+
+        if (json['error']) {
+          $('#content > .container-fluid').prepend('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+        }
+
+        if (json['success']) {
+          $('#content > .container-fluid').prepend('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + '  <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+        }        
+      },
+      error: function(xhr, ajaxOptions, thrownError) {
+        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+      }
+    });
+  });
+
+  </script></div>
+{{ footer }}

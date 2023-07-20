@@ -20,8 +20,7 @@ if($_COOKIE['CarModGarage'] AND $vPicture AND $vTypID){
     <div class="CmMSelectTableSeTD">
         <div class="CmMselBoxWrap">
             <div class="CmMSelectBox">
-                <div class="CmMSelectBut <?=$IsDisabManuf?>" id="CmMS_BoxManuf">
-                    <div class="CmSelManufNameBl"><span class="CmColorTx" id="CmMS_Manuf" data-value="<?=$sManuf?>"><?=$vManuf?></span></div> &#9660;</div>
+                <div class="CmMSelectBut <?=$IsDisabManuf?>" id="CmMS_BoxManuf"><div class="CmSelManufNameBl"><span class="CmColorTx" id="CmMS_Manuf" data-value="<?=$sManuf?>"><?=$vManuf?></span></div> &#9660;</div>
                 <div class="CmMSelectDown CmMSelectDown<?=$Selector_Position?> CmMSelectDownManuf" id="CmMS_DdManuf">
                         <?if($MfGroupsCnt>1){?>
                             <div class="CmColorBr CmMSelectGroups">
@@ -466,6 +465,8 @@ $(document).ready(function($){
 				url:'<?=SELECTOR_PROCESSOR?>', type:'POST', dataType:'html', data:PostData,
 				statusCode:{
 					200: function(Res){//alert(Res);
+						document.cookie = 'VinNum=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+						document.cookie = 'RegNum=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 						$(location).attr('href',Res); //Redirect
 					},
 					201: function(Res){ //Next select Model
@@ -523,8 +524,10 @@ $(document).ready(function($){
 	var el = document.getElementsByClassName('CmResetSettings');
 	for (i=0; i<el.length; i++){
 		el[i].onclick = function(){
+			document.cookie = 'VinNum=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+			document.cookie = 'RegNum=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 			deleteCookie('CarModVehicle');
-		location.reload(true);
+			location.reload(true);
 		}
 	}
 	
@@ -583,9 +586,12 @@ function ModelFilterByLet(){
 		
 		
     });
-	
-	
-	
 }
 
+$(document).on('click','.CmSelModelLink',function(e){
+	if(this.href != ''){
+		document.cookie = 'VinNum=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+		document.cookie = 'RegNum=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+	}
+});
 </script>

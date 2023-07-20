@@ -1,6 +1,8 @@
 <?php
-class ControllerCommonHome extends Controller {
-	public function index() {
+class ControllerCommonHome extends Controller
+{
+	public function index()
+	{
 		$this->document->setTitle($this->config->get('config_meta_title'));
 		$this->document->setDescription($this->config->get('config_meta_description'));
 		$this->document->setKeywords($this->config->get('config_meta_keyword'));
@@ -16,7 +18,7 @@ class ControllerCommonHome extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 
 		$data['header'] = $this->load->controller('common/header');
-
+		$data['menu_grid'] = $this->load->controller('common/menu_grid');
 
 		$data['slider_section'] = $this->load->controller('sections/slider_section');
 		$data['banner_block'] = $this->load->controller('sections/banner_block');

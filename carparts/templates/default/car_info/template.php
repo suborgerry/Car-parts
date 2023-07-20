@@ -297,7 +297,7 @@ $aListSVG = [
 					<div class="CmEngineInfo CmBgTitle">
 						<div class="CmEngineImg CmColorFiL">
 							<?if($aRes['TYPE_LITRE'] AND $aRes['TYPE_LITRE']>0){?>
-								<div class="CmEngTxt CmTitShow" title="<?=$aRes['TYPE_CUBTEC']?>&nbsp;<?=Lng_x('sm',1)?><br><?=Lng_x($aRes['TYPE_MIXTURE'])?><br><?=Lng_x($aRes['TYPE_ENGINE_TYPE'])?><br><?=Lng_x($aRes['TYPE_GEAR'])?>">
+								<div class="CmEngTxt CmTitShow" title="<?=$aRes['TYPE_CUBTEC']?>&nbsp;<?=Lng_x('sm',0)?><br><?=Lng_x($aRes['TYPE_MIXTURE'],0)?><br><?=Lng_x($aRes['TYPE_ENGINE_TYPE'],0)?><br><?=Lng_x($aRes['TYPE_GEAR'],0)?>">
 									<?=$aRes['TYPE_LITRE']?>
 								</div>
 							<?}elseif($aRes['TYPE_ENGINE_TYPE']=='Electric'){?>

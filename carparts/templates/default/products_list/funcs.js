@@ -94,23 +94,23 @@ $(document).ready(function () {
     const windWidth = jQuery(window).width();
     if (windWidth >= 648) {
         let rowBl = '';
-        jQuery(".CmPropsWrapBl").hover(function (e) {
-            rowBl = jQuery(this).parent().parent().parent().parent().parent().parent();
-            let rowBlH = rowBl.height();
+        /* jQuery(".CmPropsWrapBl").hover(function(e){
+            rowBl =  jQuery(this).parent().parent().parent().parent().parent().parent();
+            let rowBlH =  rowBl.height();
             rowBl.css('height', `${rowBlH}px`);
             e.stopPropagation();
-            if (jQuery(this).data('props') == 'Y') {
+            if(jQuery(this).data('props')=='Y'){
                 jQuery(this).find('.CmHideOverBl').hide();
                 jQuery(this).find('.CmListProps_2').stop(true, true).slideDown(100).css('display', 'grid');
                 jQuery(this).addClass('CmNPBlockBorder');
             }
-        }, function (e) {
+        },function(e){
             e.stopPropagation();
             jQuery(this).find('.CmHideOverBl').show();
             jQuery(this).find('.CmListProps_2').stop(true, true).slideUp(100);
             jQuery(this).removeClass('CmNPBlockBorder');
-            setTimeout(() => rowBl.css('height', 'auto'), 100);
-        });
+            setTimeout(() => rowBl.css('height','auto'), 100);
+        }); */
     }
 
     //    SHOW HIDE PRICES TABLE VIEW
